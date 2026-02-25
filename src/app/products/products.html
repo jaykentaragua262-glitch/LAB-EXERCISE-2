@@ -2,29 +2,29 @@
   <h2>Our Products</h2>
 
   <div class="products">
-    <div class="card" *ngFor="let item of products">
-
-      <h3>{{ item.name }}</h3>
-      <p class="price">₱{{ item.price }}</p>
-
-      <p class="stock">
-        Stock: 
-        <span [class.out]="item.stock === 0">
-          {{ item.stock }}
-        </span>
-      </p>
-
-      <div class="buttons">
-        <button 
-          (click)="addToCart(item)" 
-          [disabled]="item.stock === 0"
-          [class.soldout]="item.stock === 0">
-          Add to Cart
-        </button>
+  <div class="product-card" *ngFor="let item of products">
+    <img [src]="item.image" alt="{{ item.name }}" width="150">
+    <h3>{{ item.name }}</h3>
+    <p>Price: ₱{{ item.price }}</p>
+    <p *ngIf="item.stock > 0; else outStock">Stock: {{ item.stock }}</p>
+    <ng-template #outStock>
+      <p style="color:red;">Out of Stock</p>
+    </ng-template>
+    <button (click)="addToCart(item)">Add to Cart</button>
+    <button (click)="restock(item)">Restock</button>
+  </div>
+</div>
 
        
       </div>
-
+<div class="product-grid">
+  <div class="product-card" *ngFor="let product of products">
+    <img [src]="product.image" alt="{{ product.name }}">
+    <h3>{{ product.name }}</h3>
+    <p>Price: ₱{{ product.price }}</p>
+    <p>Stock: {{ product.stock }}</p>
+  </div>
+</div>  
     </div>
   </div>
 </section>
