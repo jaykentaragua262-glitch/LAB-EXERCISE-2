@@ -3,7 +3,6 @@
 
   <div class="products">
   <div class="product-card" *ngFor="let item of products">
-    <img [src]="item.image" alt="{{ item.name }}" width="150">
     <h3>{{ item.name }}</h3>
     <p>Price: ₱{{ item.price }}</p>
     <p *ngIf="item.stock > 0; else outStock">Stock: {{ item.stock }}</p>
