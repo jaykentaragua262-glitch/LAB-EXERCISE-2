@@ -1,37 +1,123 @@
-/* Products */
+
+#products {
+  padding: 50px 0;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+#products h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* Product List Section */
 .products {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 20px;
 }
 
 .product-card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  width: 200px;
+  background-color: #fff;
   border-radius: 8px;
-  transition: 0.3s;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-  border-radius: 5px;
+/* Product Image */
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
 }
 
-button:hover {
-  background-color: #011e3d;
+.product-card:hover img {
+  opacity: 0.85;
 }
 
-.out {
+/* Product Info */
+.product-card h3 {
+  font-size: 1.75rem;
+  color: #333;
+  margin: 15px 0;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* Stock Info */
+.product-card p:nth-child(3) {
+  font-size: 1.1rem;
+  color: #4CAF50;
+}
+
+.product-card p.out-of-stock {
   color: red;
-  font-weight: bold;
+}
+
+/* Buttons */
+.product-card button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.product-card button:hover {
+  background-color: #218838;
+}
+
+.product-card button:focus {
+  outline: none;
+}
+
+.product-card .restock {
+  background-color: #007bff;
+}
+
+.product-card .restock:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #products h2 {
+    font-size: 2rem;
+  }
+
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
